@@ -1,13 +1,18 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-
-import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
-
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+ 
+import { AboutComponent } from "../about/about.component";
+import { ContactComponent } from "./contact/contact.component";
+import { LoginComponent } from "./login/login.component";
+ 
+const routes: Routes = [
+  { path: "about", component: AboutComponent },
+  { path: "contact", component: ContactComponent },
+  { path: "login", component: LoginComponent }
+];
+ 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent ],
-  bootstrap:    [ AppComponent ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppModule { }
+export class MyRouter {}
